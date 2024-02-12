@@ -1,0 +1,21 @@
+---
+- name: Implementing Tags/Tagging in ansible
+  hosts: all
+  gather_facts: false
+  become: yes
+  tasks:
+    - name: Install tree
+      apt:
+       name: tree
+       state: present
+      tags: tree_intsllation
+    - name: create user
+      user:
+       name: anu
+       password: Adinesh
+      tags: user_creation
+    - name: copy password
+      copy:
+       src: /etc/passwd
+       dest: /tmp
+ 
