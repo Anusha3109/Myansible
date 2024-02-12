@@ -1,0 +1,17 @@
+---
+- name : check if file is executable if so delete it
+  hosts: all
+  tasks:
+    - name: check for file info
+      stat:
+        path: /tmp/file1
+      register: results
+    - name: display o/p of above module
+      debug:
+        var: results
+    - name: delete the file if it is executable
+      file:
+        name: /tmp/file1
+        state: absent
+      when: results.stat.executable == true
+...          
