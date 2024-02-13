@@ -1,0 +1,27 @@
+---
+- name: check for file100 is present if present k if not create file100
+  hosts: all
+  tasks:
+    - name: check for file100
+      stat:
+        path: /home/ubuntu/file100
+      register: a
+    - name: Display o/p of above module
+      debug:
+        var: a
+    - name: create file100 file if f100 folder is not present
+      file:
+        name: /home/ubuntu/file100
+        state: touch
+      when: a.stat.exists == false 
+        
+        
+        
+        
+        
+        
+...
+
+
+
+
