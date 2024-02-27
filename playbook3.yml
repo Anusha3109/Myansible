@@ -23,7 +23,7 @@
       uri:
        url: http://172.31.23.31
        status_code: 200   
-     - name: check apache2 response on server3
+    - name: check apache2 response on server3
       uri:
        url: http://172.31.26.156
        status_code: 200
